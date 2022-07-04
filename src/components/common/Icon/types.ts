@@ -1,0 +1,1 @@
+export type icon = 'logo' | 'phone' | 'cart' | 'location' | 'dominos' | 'stock'
