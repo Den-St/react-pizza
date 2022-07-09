@@ -8,7 +8,10 @@ type SvgProps = {
     viewBox?: string,
     fill?: string,
     width?: string,
-    height?: string
+    height?: string,
+    backgroundColor?:string,
+    margin?:string,
+    padding?:string
 }
 
 export const SvgIcon: React.FC<SvgProps> = ({type, ...props}) => {

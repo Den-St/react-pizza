@@ -5,9 +5,12 @@ export const disabledStyles = css`
   pointer-events: none;
 `;
 
-export const StyledSvg = styled.svg<{$disabled?: boolean}>`
+export const StyledSvg = styled.svg<{backgroundColor?:string,margin?:string,padding?:string}>`
   ${({color}) => color && `color: ${color};`}
   ${({fill}) => fill && `fill: ${fill};`}
   ${({stroke}) => stroke && `stroke: ${stroke};`}
-  ${({$disabled}) => $disabled && disabledStyles};
+  ${({backgroundColor}) => backgroundColor && `background-color:${backgroundColor};`}
+  ${({margin}) => margin && `margin: ${margin};`}
+  ${({padding}) => padding && `padding ${padding};`}
+
 `;

@@ -9,17 +9,24 @@ export const LayoutWrapper = styled.div`
   background-color: #f6f5f5;
 `;
 
-export const Main = styled.main``;
+export const Main = styled.main`
 
-export const FooterContainer = styled.div`
-  width: 100%;
-  height: 345px;
+`;
+export const Pain = styled.div`
+  padding-bottom: 50px;
+  
+  max-width: 1320px;
+  margin: 10px auto 22px auto;
+  &>span{
+    font-family: Calibri;
+    font-size: 14px;
+    font-weight: bold;
+  }
 `;
 
 export const HeaderContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding-bottom: 50px;
   z-index: 10 ;
 `;
 
@@ -251,7 +258,7 @@ export const CartContainer = styled.div`
 `;
 
 export const CartWrapper = styled.div`
-  width: 315px;
+  max-width: 315px;
   height: 50px;
   border-radius: 30px;
   background-color: white;
@@ -281,13 +288,17 @@ export const PizzasNumberContainer = styled.div`
 export const PizzasNumber = styled.span`
   height: 14px;
   font-size: 14px;
+  color: white;
+  font-weight: bolder;
 `;
 
 export const TotalPrice = styled.span`
   max-width: 117px;
-  height: 14px;
-  font-size: 14px;
+  height: 18px;
+  font-size: 18px;
+  font-family: Calibri;
   color: black;
+  margin: 0 15px;
 `;
 
 export const MakeOrderButton = styled.button`
@@ -302,5 +313,79 @@ export const MakeOrderButton = styled.button`
   border-radius: 25px;
   background-color: #e31837;
   color: white;
+  font-family: Calibri;
+`;
+
+export const FooterContainer = styled.div`
+  width: 100%;
+  height: 345px;
+  padding: 45px 30px 30px 30px;
+  background-color: #000;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+`;
+
+export const MainContainer = styled.div`
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 45px;
+`;
+
+export const TopContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  position: relative;
+  &>svg{
+    position: absolute;
+    top: 17px;
+    left: -35px;
+    fill: red;
+  }
+`;
+
+export const BottomContainer = styled.div`
+  width: 100%;
+  height: 69px;
+`;
+
+export const Title = styled.span`
+  font-size: 1em;
+  color: white;
+`;
+
+export const MenuItem = styled.span`
+  color: #8d8d8d;
+  font-size: 17px;
+  font-family: Calibri;
+  width: 100%;
+  cursor:pointer;
+  transition: 0.3s;
+  margin: 5px 0px;
+  &:hover{
+    color: white;
+  }
+`;
+
+export const BottomItemContainer =styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+`;
+
+export const StoreContainer = styled.div`
+  height: 45px;
+  width: 126px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2e2e2e;
+  border-radius: 10px;
 `;
 

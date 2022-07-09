@@ -1,125 +1,385 @@
 {
   "items":[
     {
-        "id": 1,  
-        "name": "Пицца Сицилина",
-        "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
-        "image": "pizza_PNG7136-min.png",
-        "price": 7.49,
-        "type": ["Мясная"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 4.4,
-        "priceScale": [1,1.4,2.3]
-        
-      },
-      {
-        "id": 2,
-        "name": "Пицца Вегетариана",
-        "description": "Сыр Моцарелла, шампиньоны, фирменный томатный соус, кукуруза, маслины, помидор",
-        "image": "pizza_PNG7151-min.png",
-        "price": 7.99,
-        "type": ["Вегетарианская"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.4,
-        "priceScale": [1,1.4,2.3]
-      },
-      {
-        "id": 3,
-        "name": "Пицца Пеперони",
-        "description": "Пепперони, сыр Моцарелла, фирменный томатный соус",
-        "image": "pizza_PNG43991-min.png",
-        "price": 5.99,
-        "type": ["Острая"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.9,
-        "priceScale": [1,1.5,2.5]
-      },
-      {
-        "id": 4,
-        "name": "Пицца Аморе-Чикен",
-        "description": "Ветчина, маслины, помидор, сыр Моцарелла, орегано, фирменный томатный соус",
-        "image": "pizza_PNG44029-min.png",
-        "price": 9.99,
-        "type": ["Мясная", "Гриль"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 4.1,
-        "priceScale": [1,1.4,2.3]
-      },
-      {
-        "id": 5,
-        "name": "Пицца Прошутто",
-        "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
-        "image": "pizza_PNG44068-min.png",
-        "price": 7.99,
-        "type": ["Мясная"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.8,
-        "priceScale": [1,1.4,2.3]
-      },
-      {
-        "id": 6,
-        "name": "Пицца Римио",
-        "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
-        "image": "pizza_PNG44073-min.png",
-        "price": 9.99,
-        "type": ["Мясная", "Острая"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.8,
-        "priceScale": [1,1.4,2.3]
-      },
-      {
-        "id": 7,
-        "name": "Пицца Мясная",
-        "description": "Колбаски охотничьи, пепперони, бекон, ветчина, Моцарелла, фирменный томатный соус",
-        "image": "pizza_PNG44077-min.png",
-        "price": 9.99,
-        "type": ["Мясная", "Гриль"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.9,
-        "priceScale": [1,1.4,2.3]
-      },
-      {
-        "id": 8,
-        "name": "Пицца 4 сезона",
-        "description": "Куриное филе запеченное, ананас, салями, перец острый маринованный, ветчина, шампиньоны, маслины, помидор, сыр",
-        "image": "pizza_PNG44090-min.png",
-        "price": 10.99,
-        "type": ["Мясная", "Гриль", "Острая"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 3.9,
-        "priceScale": [1,1.6,2.6]
-      },
-      {
-        "id": 9,
-        "name": "Пицца Спиначи",
-        "description": "Куриное филе запеченное, ветчина, сыр Моцарелла, помидор, орегано, фирменный томатный соус",
-        "image": "pizza_PNG44095-min.png",
-        "price": 6.99,
-        "type": ["Острая", "Гриль"],
-        "size": [25,30,40],
-        "dough": [1,2],
-        "popular": 4,
-        "priceScale": [1,1.5,2.2]
-      },
-      {
-        "id": 10,
-        "name": "Пицца Кальцоне",
-        "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
-        "image": "pizza_PNG44096-min.png",
-        "price": 8.99,
-        "type": ["Закрытая"],
-        "size": [30],
-        "dough": [2],
-        "popular": 4.1,
-        "priceScale": [1]
-      }
+      "id": 1,
+      "name": "Пицца Сицилина",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2021/07/27/Manhatten_slice_collageweb-min.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["meat"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+    },
+    {
+      "id": 2,
+      "name": "Пицца Вегетариана",
+      "description": "Сыр Моцарелла, шампиньоны, фирменный томатный соус, кукуруза, маслины, помидор",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["meat"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 3,
+      "name": "Пицца Пеперони",
+      "description": "Пепперони, сыр Моцарелла, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["meat"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 4,
+      "name": "Пицца Аморе-Чикен",
+      "description": "Ветчина, маслины, помидор, сыр Моцарелла, орегано, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/03/30/%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["meat"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.1,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 5,
+      "name": "Пицца Прошутто",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["Мясная"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.8,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 6,
+      "name": "Пицца Римио",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["cheesy"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.8,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+    },
+    {
+      "id": 7,
+      "name": "Пицца Мясная",
+      "description": "Колбаски охотничьи, пепперони, бекон, ветчина, Моцарелла, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["cheesy"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 8,
+      "name": "Пицца 4 сезона",
+      "description": "Куриное филе запеченное, ананас, салями, перец острый маринованный, ветчина, шампиньоны, маслины, помидор, сыр",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/03/30/%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["cheesy"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 9,
+      "name": "Пицца Спиначи",
+      "description": "Куриное филе запеченное, ветчина, сыр Моцарелла, помидор, орегано, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["cheesy"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 10,
+      "name": "Пицца Кальцоне",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["cheesy"],
+      "size": [30],
+      "dough": [2],
+      "popular": 4.1,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+    },{
+      "id": 11,
+      "name": "Пицца Сицилина",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["vegetable"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+
+    },
+    {
+      "id": 12,
+      "name": "Пицца Вегетариана",
+      "description": "Сыр Моцарелла, шампиньоны, фирменный томатный соус, кукуруза, маслины, помидор",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/03/30/%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["vegetable"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 13,
+      "name": "Пицца Пеперони",
+      "description": "Пепперони, сыр Моцарелла, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["vegetable"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 14,
+      "name": "Пицца Аморе-Чикен",
+      "description": "Ветчина, маслины, помидор, сыр Моцарелла, орегано, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["vegetable"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.1,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 15,
+      "name": "Пицца Прошутто",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["vegetable"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.8,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 16,
+      "name": "Пицца Римио",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["bestprice"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.8,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 17,
+      "name": "Пицца Мясная",
+      "description": "Колбаски охотничьи, пепперони, бекон, ветчина, Моцарелла, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["bestprice"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 18,
+      "name": "Пицца 4 сезона",
+      "description": "Куриное филе запеченное, ананас, салями, перец острый маринованный, ветчина, шампиньоны, маслины, помидор, сыр",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 2159,
+      "type": ["bestprice"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 19,
+      "name": "Пицца Спиначи",
+      "description": "Куриное филе запеченное, ветчина, сыр Моцарелла, помидор, орегано, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["bestprice"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 20,
+      "name": "Пицца Кальцоне",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["bestprice"],
+      "size": [30],
+      "dough": [2],
+      "popular": 4.1,
+      "priceScale": [1],
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+    },
+    {
+      "id": 21,
+      "name": "Пицца Сицилина",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["premium"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 22,
+      "name": "Пицца Вегетариана",
+      "description": "Сыр Моцарелла, шампиньоны, фирменный томатный соус, кукуруза, маслины, помидор",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["premium"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.4,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 23,
+      "name": "Пицца Пеперони",
+      "description": "Пепперони, сыр Моцарелла, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%A2%D0%B5%D1%85%D0%B0%D1%81_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["premium"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.9,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 24,
+      "name": "Пицца Аморе-Чикен",
+      "description": "Ветчина, маслины, помидор, сыр Моцарелла, орегано, фирменный томатный соус",
+      "image": "https://media.dominos.ua/menu/product_osg_image_category/2020/12/28/Vetchina_i_griby_.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["premium"],
+
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 4.1,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    },
+    {
+      "id": 25,
+      "name": "Пицца Прошутто",
+      "description": "Шампиньоны, ветчина, пепперони, сыр моцарелла",
+      "image": "https://media.dominos.ua/menu/product_osg_image_mobile/2018/02/28/%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8_%D0%B8_%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D1%8B_300dpi.jpg",
+      "detailedImage": "https://media.dominos.ua/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min.jpg",
+      "price": 215,
+      "type": ["premium"],
+      "size": [25,30,40],
+      "dough": [1,2],
+      "popular": 3.8,
+      "priceSize": [215,259],
+      "priceDough": [[0,0,40,50],[0,0,50,60]]
+
+    }
     ]
 }

@@ -9,9 +9,11 @@ export const DropListLanguageContainer = styled.div`
   top: 42px;
   background-color: white;
   border: 1px solid #00000014;
+  z-index: 1;
 `;
 
 export const ItemLanguage = styled.div`
+
   width: 100%;
   height: 50px;
   border-bottom-right-radius:15px ;

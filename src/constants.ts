@@ -19,9 +19,9 @@ export const languages = [
 
 export const MenuLinks = [
     {category:'Мясна',link:'/category/meat',icons:'stock'},
-    {category:'Сирна',link:'/category/cheese',icons:'stock'},
-    {category:'Овочна',link:'/category/vegetables',icons:'stock'},
-    {category:'Краща ціна',link:'/category/best-price',icons:'stock'},
+    {category:'Сирна',link:'/category/cheesy',icons:'stock'},
+    {category:'Овочна',link:'/category/vegetable',icons:'stock'},
+    {category:'Краща ціна',link:'/category/bestprice',icons:'stock'},
     {category:'Преміум',link:'/category/premium',icons:'stock'}
 ]
 
