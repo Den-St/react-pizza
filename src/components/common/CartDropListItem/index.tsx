@@ -17,8 +17,11 @@ type CartDropListItemProps = {
 
 export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
     const cart = useContext(PizzaContext);
+    const addToCart = () =>{
+        cart.plusPizza?.(pizza);
+    }
     const deletePizza = () =>{
-        cart.deletePizza?.(pizza.id);
+        cart.deletePizza?.(pizza);
     }
     return <CartDropListItemContainer>
         <TopContainer>
@@ -31,8 +34,8 @@ export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
             <Price>{pizza.price} <Grn>грн.</Grn></Price>
             <NumberContainer>
                 <MinusButton>-</MinusButton>
-                <Number>01</Number>
-                <PlusButton>+</PlusButton>
+                <Number>{pizza.count}</Number>
+                <PlusButton onClick={addToCart}>+</PlusButton>
             </NumberContainer>
         </BotContainer>
     </CartDropListItemContainer>

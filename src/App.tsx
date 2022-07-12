@@ -10,29 +10,32 @@ import {PizzaInCart} from "./types/pizza";
 
 export type PizzaContextT = {
     list: PizzaInCart[]
-    addToCart?: (pizza:PizzaInCart)=> void,
-    deletePizza?:(id:number) => void
+    addToCart?: (pizza:PizzaInCart) => void,
+    deletePizza?:(pizza:PizzaInCart) => void,
+    plusPizza?:(pizza:PizzaInCart) => void
 }
 export const PizzaContext = React.createContext<PizzaContextT>({list: []});
 
 function App() {
     const [addedPizza,setAddedPizza] = useState<PizzaInCart[]>([])
-    // const comparePizzas = (pizza1:PizzaInCart,pizza2:PizzaInCart) =>{
-    //     if(pizza1.id === pizza2.id && pizza1.doughTypeName === pizza2.doughTypeName && pizza1.sizeTypeName === pizza2.sizeTypeName)return true;
-    //     else return false;
-    // }
-    const addToCart = (pizza:PizzaInCart) =>{
-        // addedPizza.map(el => {if(comparePizzas(el,pizza)){
-        //     ++el.count;
-        //     return}
-        // })
-        setAddedPizza(prevState => [...prevState,pizza]);
+    const comparePizzas = (pizza1:PizzaInCart,pizza2:PizzaInCart) =>{
+        if(pizza1.id === pizza2.id && pizza1.doughTypeName === pizza2.doughTypeName && pizza1.sizeTypeName === pizza2.sizeTypeName)return true;
+        return false;
     }
-    const deletePizza = (id:number) =>{
-        setAddedPizza(prevState => prevState.filter(el => el.id != id))
+    const addToCart = (pizza:PizzaInCart) =>{
+        const exist = addedPizza.find(el => comparePizzas(el,pizza));
+        const newList = exist ? addedPizza.map(el => comparePizzas(el,pizza) ? {...el, count: el.count + 1} : el ) : [...addedPizza, pizza]
+        console.log(newList);
+        setAddedPizza(newList);
+    }
+    const plusPizza = (pizza:PizzaInCart) =>{
+        setAddedPizza(addedPizza.map(el => comparePizzas(el,pizza) ? {...el,count: el.count + 1} : el))
+    }
+    const deletePizza = (pizza:PizzaInCart) =>{
+        setAddedPizza(prevState => prevState.filter(el => !comparePizzas(pizza,el)));
     }
     return (
-      <PizzaContext.Provider value={{list: addedPizza, addToCart, deletePizza}}>
+      <PizzaContext.Provider value={{list: addedPizza, addToCart, deletePizza, plusPizza}}>
       <Layout>
         <Routes>
           <Route path={'/'} element={<Home/>}/>

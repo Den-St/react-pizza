@@ -40,4 +40,5 @@ export type PizzaInCart = {
     description: string
     doughTypeName:string
     sizeTypeName:string
+    count: number
 }

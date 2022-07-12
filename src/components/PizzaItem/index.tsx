@@ -15,7 +15,7 @@ import {
     PizzaSizes, Plus,
     Price
 } from "./style";
-import {Dough, Sizes, TPizza} from "../../types/pizza";
+import {Dough, PizzaInCart, Sizes, TPizza} from "../../types/pizza";
 import {PizzaContext} from "../../App";
 
 type props = {
@@ -28,6 +28,13 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const [dough,setDough] = useState(Dough.standard);
     const [tempPrice,setTempPrice] = useState(pizza.priceSize?.[0]);
     const context = useContext(PizzaContext);
+    const totalcount = context.list.map(el => el.count).join('');
+
+    const compareCartToHome = (pizza1:TPizza,pizza2:PizzaInCart) =>{
+        if(pizza1.id === pizza2.id && pizza1.doughTypesName[dough] === pizza2.doughTypeName && pizza1.sizeTypesName[size] === pizza2.sizeTypeName)return true;
+        return false;
+    }
+
     const changeSize = (s:Sizes) => () =>{
         setSize(s);
     }
@@ -37,16 +44,20 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const changeTempPrice = (size:number,dough:number) =>{
         setTempPrice((pizza.priceSize[size] + pizza.priceDough[size][dough]))
     }
-
+    useEffect(()=>{
+        context.list.map(el => compareCartToHome(pizza,el) ? setCount(el.count) : setCount(0));
+        console.log("count",count);
+        },
+        [context.list]
+    )
     useEffect(()=>{
         changeTempPrice(size,dough);
     },[size,dough]);
     const link = `/pizza/${pizza.id}`;
 
     const addToCart = () =>{
-        setCount(prev=>++prev)
         context?.addToCart?.({id:pizza.id,name:pizza.name,price:tempPrice,description:pizza.description,
-            doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size]});
+            doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size],count:1});
     }
     return <PizzaItemContainer>
         <PizzaItemWrapper>
@@ -74,11 +85,11 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
                         <Price>{tempPrice}</Price>
                         <Grn>грн</Grn>
                     </PizzaPrice>
-                    {!count && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
+                    {count===0 && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
                     {count>0 && <NumberContainer>
-                        <Plus>-</Plus>
+                        <Minus>-</Minus>
                         <Count>{count}</Count>
-                        <Minus>+</Minus>
+                        <Plus onClick={addToCart}>+</Plus>
                     </NumberContainer>}
                 </BottomDescription>
             </PizzaDescriptionContainer>
