@@ -22,9 +22,10 @@ import {BurgerButton} from "../common/Button";
 import {LocationModal} from "../common/LocationModal";
 import {LocationT} from "../../types/common";
 import {languages, locations} from "../../constants";
-import {DropListLanguage} from "../common/DropListLanguage";
+import {DropList} from "../common/DropListLanguage";
 import {LogInModal} from "../common/LoginModal";
 import {RegistrationModal} from "../common/RegistrationModal";
+import {ItemLanguage} from "../common/DropListLanguage/styles";
 
 type HeaderProps ={
     toggle?:() => void,
@@ -127,7 +128,7 @@ const HeaderTopPart = () => {
                     <Language>{currentLanguage}</Language>
                     <SvgIcon type={'location'}/>
                 </LanguageContainer>
-                {isActiveLanguage && <DropListLanguage chooseCurrentLanguage={chooseCurrentLanguage} />}
+                {isActiveLanguage && <DropList cart={false} chooseCurrentLanguage={chooseCurrentLanguage}>{languages.map((el) => <ItemLanguage key={el.id} onClick={() => chooseCurrentLanguage(el.id)}>{el.language}</ItemLanguage>)}</DropList>}
 
                 <LogInButton onClick={onActiveLogIn}>Увійти</LogInButton>
                 {isActiveLogIn && <LogInModal onRegistration={onRegistration} onClose={onBlurLogIn}/>}

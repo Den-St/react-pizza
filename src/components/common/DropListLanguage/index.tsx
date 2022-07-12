@@ -1,13 +1,14 @@
 import React from "react";
-import {languages} from "../../../constants";
-import { DropListLanguageContainer,  ItemLanguage} from "./styles";
+import {DropListContainer} from "./styles";
 
 type DropListProps = {
-    chooseCurrentLanguage: (index:number) => void,
+    chooseCurrentLanguage?: (index:number) => void,
+    children:React.ReactNode,
+    cart:boolean
 }
 
-export const DropListLanguage:React.FC<DropListProps> = ({chooseCurrentLanguage}) =>{
-    return <DropListLanguageContainer>
-        {languages.map((el) => <ItemLanguage key={el.id} onClick={() => chooseCurrentLanguage(el.id)}>{el.language}</ItemLanguage>)}
-    </DropListLanguageContainer>
+export const DropList:React.FC<DropListProps> = ({chooseCurrentLanguage,children,cart}) =>{
+    return <DropListContainer $cart={cart}>
+        {children}
+    </DropListContainer>
 }

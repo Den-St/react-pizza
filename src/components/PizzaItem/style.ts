@@ -58,11 +58,19 @@ export const PizzaName = styled(Link)`
   color: #222;
 `;
 
+export const PizzaRecipeContainer = styled.div`
+  margin-top: 5px;
+  height: 80px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+`;
+
 export const PizzaRecipe = styled.span`
   font-size: 14px;
   color: #4f4f4f;
-  margin-top: 5px;
-  margin-left: 10px;
 `;
 
 export const ChangeRecipe = styled(Link)`
@@ -70,15 +78,14 @@ export const ChangeRecipe = styled(Link)`
   font-weight: 600;
   color: #4f4f4f;
   text-decoration: underline;
-  margin-left: 10px;
 `;
 
 export const PizzaSizes = styled.div`
   width: 100%;
   height: 30px;
   border-radius: 15px;
-  box-sizing: border-box; 
-  margin-top: 35px;
+  box-sizing: border-box;
+
   &>button{
     cursor: pointer;
     width: 50%;
@@ -161,4 +168,32 @@ export const PizzaAddButton = styled.button`
   outline: none;
   border-radius: 15px;
   cursor: pointer;
+`;
+
+export const NumberContainer = styled.div`
+    width: 140px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  background-color: white;
+  &>button{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+`;
+
+export const Plus = styled.button``;
+export const Minus = styled.button``;
+
+export const Count = styled.span`
+  font-weight: bolder;
+  font-size: 20px;
 `;

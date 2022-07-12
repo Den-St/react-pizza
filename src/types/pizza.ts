@@ -17,6 +17,8 @@ export type TPizza = {
     "size": number[],
     "priceSize": number[],
     "priceDough": number[][]
+    "doughTypesName":string[]
+    "sizeTypesName":string[]
 }
 
 export enum Sizes {
@@ -31,7 +33,11 @@ export enum Dough{
     hotdog = 3
 }
 
-export type CartPizzaItem = {
+export type PizzaInCart = {
     id:number,
+    name: string,
     price:number
+    description: string
+    doughTypeName:string
+    sizeTypeName:string
 }

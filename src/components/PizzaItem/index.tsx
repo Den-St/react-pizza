@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {
     BottomDescription,
-    ChangeRecipe,
-    Grn,
+    ChangeRecipe, Count,
+    Grn, Minus, NumberContainer,
     PizzaAddButton,
     PizzaDescriptionContainer,
     PizzaDough,
@@ -11,12 +11,12 @@ import {
     PizzaItemWrapper,
     PizzaName, PizzaPickDough, PizzaPickSize,
     PizzaPrice,
-    PizzaRecipe,
-    PizzaSizes,
+    PizzaRecipe, PizzaRecipeContainer,
+    PizzaSizes, Plus,
     Price
 } from "./style";
-import {CartPizzaItem, Dough, Sizes, TPizza} from "../../types/pizza";
-import {useGlobalContext} from "../../context/context";
+import {Dough, Sizes, TPizza} from "../../types/pizza";
+import {PizzaContext} from "../../App";
 
 type props = {
     pizza:TPizza;
@@ -24,9 +24,10 @@ type props = {
 
 export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const [size,setSize] = useState(Sizes.standard);
+    const [count,setCount] = useState(0);
     const [dough,setDough] = useState(Dough.standard);
     const [tempPrice,setTempPrice] = useState(pizza.priceSize?.[0]);
-    const { setCart } = useGlobalContext()
+    const context = useContext(PizzaContext);
     const changeSize = (s:Sizes) => () =>{
         setSize(s);
     }
@@ -43,9 +44,9 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const link = `/pizza/${pizza.id}`;
 
     const addToCart = () =>{
-        const item: CartPizzaItem = { id: pizza.id, price: tempPrice};
-        setCart(item);
-        // localStorage.setItem('cart', JSON.stringify(item));
+        setCount(prev=>++prev)
+        context?.addToCart?.({id:pizza.id,name:pizza.name,price:tempPrice,description:pizza.description,
+            doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size]});
     }
     return <PizzaItemContainer>
         <PizzaItemWrapper>
@@ -54,8 +55,10 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
             </PizzaImageContainer>
             <PizzaDescriptionContainer>
                 <PizzaName to={link}>{pizza.name}</PizzaName>
-                <PizzaRecipe>{pizza.description}</PizzaRecipe>
-                <ChangeRecipe to={link}>Змінити інгредієнти</ChangeRecipe>
+                <PizzaRecipeContainer>
+                    <PizzaRecipe>{pizza.description}</PizzaRecipe>
+                    <ChangeRecipe to={link}>Змінити інгредієнти</ChangeRecipe>
+                </PizzaRecipeContainer>
                 <PizzaSizes>
                     <PizzaPickSize $isPicked={size === Sizes.standard} onClick={changeSize(Sizes.standard)}>Cтандартна</PizzaPickSize>
                     <PizzaPickSize $isPicked={size === Sizes.big} onClick={changeSize(Sizes.big)}>Велика</PizzaPickSize>
@@ -71,7 +74,12 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
                         <Price>{tempPrice}</Price>
                         <Grn>грн</Grn>
                     </PizzaPrice>
-                    <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>
+                    {!count && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
+                    {count>0 && <NumberContainer>
+                        <Plus>-</Plus>
+                        <Count>{count}</Count>
+                        <Minus>+</Minus>
+                    </NumberContainer>}
                 </BottomDescription>
             </PizzaDescriptionContainer>
         </PizzaItemWrapper>

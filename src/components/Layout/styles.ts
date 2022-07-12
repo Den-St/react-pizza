@@ -17,8 +17,8 @@ export const Pain = styled.div`
   
   max-width: 1320px;
   margin: 10px auto 22px auto;
+  font-family: Calibri;
   &>span{
-    font-family: Calibri;
     font-size: 14px;
     font-weight: bold;
   }
@@ -226,7 +226,7 @@ export const Menu = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: -10px;
 `;
 
 export const MenuLink = styled(Link)<{$isBold:boolean}>`
@@ -253,8 +253,10 @@ export const CartContainer = styled.div`
   height: 70px;
   box-sizing: border-box;
   display: flex;
-  justify-content: flex-end;
+
   align-items: center;
+  cursor: pointer;
+  font-family: Calibri;
 `;
 
 export const CartWrapper = styled.div`
@@ -296,9 +298,14 @@ export const TotalPrice = styled.span`
   max-width: 117px;
   height: 18px;
   font-size: 18px;
+  font-weight: bold;
   font-family: Calibri;
-  color: black;
+  color: #4f4f4f;
   margin: 0 15px;
+  transition: 0.3s;
+  &:hover{
+    color: black;
+  }
 `;
 
 export const MakeOrderButton = styled.button`
@@ -314,6 +321,8 @@ export const MakeOrderButton = styled.button`
   background-color: #e31837;
   color: white;
   font-family: Calibri;
+  font-weight: bold;
+
 `;
 
 export const FooterContainer = styled.div`
