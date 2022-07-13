@@ -15,27 +15,30 @@ export const HeaderCart = () =>{
     const totalcount = cartList.map(el => el.count).join('');
 
     const toggleCart = () =>{
-        if(list.length){setIsCart(prevState => !prevState);}
+        if(wholePizzaNumber){setIsCart(prevState => !prevState);}
     }
     console.log("total",totalcount)
     useEffect(
         ()=>{
             setList(cartList);
-            setIsCart(false);
             setSum(cartList.reduce((partialSum, a) => partialSum + a.price*a.count, 0));
             setWholePizzaNumber(cartList.reduce((partialNumber:number,pizza) => partialNumber + pizza.count, 0));
-            },
+        },
         [totalcount]
     )
+    useEffect(()=>{if(!wholePizzaNumber) setIsCart(false)}
+        ,[wholePizzaNumber])
+
     return <CartContainer>
         <CartWrapper onClick={toggleCart}>
             <PizzasNumberContainer>
-                <PizzasNumber>{wholePizzaNumber}</PizzasNumber>
+                {wholePizzaNumber < 10 && <PizzasNumber>0{wholePizzaNumber}</PizzasNumber>}
+                {wholePizzaNumber >= 10 && <PizzasNumber>{wholePizzaNumber}</PizzasNumber>}
                 <SvgIcon type={'cart'} viewBox={'0 0 510 510'}/>
             </PizzasNumberContainer>
             {!!wholePizzaNumber && <TotalPrice>{sum} грн</TotalPrice>}
             <MakeOrderButton>Замовити</MakeOrderButton>
         </CartWrapper>
-        {isCart && <DropList cart={true}>{list.map(el => <CartDropListItem key={el.id} pizza={el} />)}</DropList>}
+        {isCart && <DropList cart={true}>{list.map(el => !!el.count ? <CartDropListItem key={el.id} pizza={el}/> : null)}</DropList>}
     </CartContainer>
 }

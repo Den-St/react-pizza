@@ -23,18 +23,17 @@ type props = {
 }
 
 export const PizzaItem:React.FC<props> = ({pizza}) =>{
-    const [size,setSize] = useState(Sizes.standard);
+    const [size,setSize] = useState(0);
     const [count,setCount] = useState(0);
-    const [dough,setDough] = useState(Dough.standard);
+    const [dough,setDough] = useState(0);
     const [tempPrice,setTempPrice] = useState(pizza.priceSize?.[0]);
     const context = useContext(PizzaContext);
-    const totalcount = context.list.map(el => el.count).join('');
+    const totalcount = context.list.map(el => context.compareCartToHome?.(pizza,el,dough,size) ? el.count : '').join('');
+    console.log(totalcount);
 
-    const compareCartToHome = (pizza1:TPizza,pizza2:PizzaInCart) =>{
-        if(pizza1.id === pizza2.id && pizza1.doughTypesName[dough] === pizza2.doughTypeName && pizza1.sizeTypesName[size] === pizza2.sizeTypeName)return true;
-        return false;
+    const minusPizzaAtHome = () =>{
+        context.minusPizzaAtHome?.(pizza,dough,size,count);
     }
-
     const changeSize = (s:Sizes) => () =>{
         setSize(s);
     }
@@ -45,10 +44,14 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
         setTempPrice((pizza.priceSize[size] + pizza.priceDough[size][dough]))
     }
     useEffect(()=>{
-        context.list.map(el => compareCartToHome(pizza,el) ? setCount(el.count) : setCount(0));
-        console.log("count",count);
+        const exist = context.list.find(el => context.compareCartToHome?.(pizza,el,dough,size));
+        if(exist) {
+            console.log('exist', exist)
+            exist ? setCount(exist.count) : setCount(0);
+        }
+            if(!totalcount) setCount(0)
         },
-        [context.list]
+        [totalcount]
     )
     useEffect(()=>{
         changeTempPrice(size,dough);
@@ -87,7 +90,7 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
                     </PizzaPrice>
                     {count===0 && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
                     {count>0 && <NumberContainer>
-                        <Minus>-</Minus>
+                        <Minus onClick={minusPizzaAtHome}>-</Minus>
                         <Count>{count}</Count>
                         <Plus onClick={addToCart}>+</Plus>
                     </NumberContainer>}

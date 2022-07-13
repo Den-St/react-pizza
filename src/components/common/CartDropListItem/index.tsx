@@ -17,6 +17,9 @@ type CartDropListItemProps = {
 
 export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
     const cart = useContext(PizzaContext);
+    const minusPizzaInCart = () =>{
+        cart.minusPizzaInCart?.(pizza);
+    }
     const addToCart = () =>{
         cart.plusPizza?.(pizza);
     }
@@ -33,7 +36,7 @@ export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
         <BotContainer>
             <Price>{pizza.price} <Grn>грн.</Grn></Price>
             <NumberContainer>
-                <MinusButton>-</MinusButton>
+                <MinusButton onClick={minusPizzaInCart}>-</MinusButton>
                 <Number>{pizza.count}</Number>
                 <PlusButton onClick={addToCart}>+</PlusButton>
             </NumberContainer>
