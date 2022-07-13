@@ -1,12 +1,13 @@
 import styled, {keyframes} from "styled-components";
 import {Link} from "react-router-dom";
 
-const breatheAnimation = keyframes`
+const focusAnimation = keyframes`
  0% { right: -200px}
  100% { right: 0}
 `
 
-export const SideMenuContainer = styled.div`
+export const SideMenuContainer = styled.div<{$isMenuOpened:boolean}>`
+  background-color: white;
   width: 345px;
   height: 100vh;
   box-sizing: border-box;
@@ -14,13 +15,12 @@ export const SideMenuContainer = styled.div`
   padding: 40px 30px 0 75px;
   display: flex;
   flex-direction: column;
-  background-color: transparent;
   position: fixed;
   top: 70px;
   right: 0;
-  z-index: 0;
-  animation-name: ${breatheAnimation};
-  animation-duration: 0.1s;
+  z-index: 5  ;
+  animation-name: ${focusAnimation};
+  animation-duration: 0.5s;
 `;
 
 export const SideMenuWrapper = styled.div`

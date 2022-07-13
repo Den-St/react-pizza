@@ -1,10 +1,32 @@
 import styled from "styled-components";
 
 export const SliderContainer = styled.div`
-  height: 539px;
+  height: 506px;
   width: 1320px;
   border-radius: 30px;
-  overflow: hidden;
+  margin-bottom: 50px;
+
+  & .swiper-pagination {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 200px !important;
+    height: 50px;
+
+    & .swiper-pagination-bullet {
+      cursor: pointer;
+      width: 13px !important;
+      height: 13px !important;
+      background-color: transparent;
+      border: 1px solid black;
+      border-radius: 50%;
+      display: block;
+      transition: 0.1s;
+      &:hover {
+        background-color: #424242;
+      }
+    }
+  }
 `;
 
 export const SlideItem =styled.img`

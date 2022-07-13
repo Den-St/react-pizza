@@ -37,7 +37,8 @@ export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
             <Price>{pizza.price} <Grn>грн.</Grn></Price>
             <NumberContainer>
                 <MinusButton onClick={minusPizzaInCart}>-</MinusButton>
-                <Number>{pizza.count}</Number>
+                {pizza.count < 10 && <Number>0{pizza.count}</Number>}
+                {pizza.count >= 10 && <Number>{pizza.count}</Number>}
                 <PlusButton onClick={addToCart}>+</PlusButton>
             </NumberContainer>
         </BotContainer>

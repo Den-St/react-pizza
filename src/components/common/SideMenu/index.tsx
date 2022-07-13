@@ -10,8 +10,12 @@ import {
 import {SvgIcon} from "../Icon/SvgIcon";
 import {MenuLinks, SideMenuBottomLinks} from "../../../constants";
 
-export const SideMenu = () =>{
-    return <SideMenuContainer>
+type sideMenuProps = {
+    isMenuOpened:boolean
+}
+
+export const SideMenu:React.FC<sideMenuProps> = ({isMenuOpened}) =>{
+    return <SideMenuContainer $isMenuOpened={isMenuOpened}>
         <SideMenuWrapper>
 
             <SideMenuTopWrapper>

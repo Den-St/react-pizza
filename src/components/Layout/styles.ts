@@ -295,7 +295,8 @@ export const PizzasNumber = styled.span`
 `;
 
 export const TotalPrice = styled.span`
-  max-width: 117px;
+  text-align: center;
+  width: 114px;
   height: 18px;
   font-size: 18px;
   font-weight: bold;

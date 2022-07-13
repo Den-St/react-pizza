@@ -178,6 +178,8 @@ export const NumberContainer = styled.div`
   align-items: center;
   border-radius: 15px;
   background-color: white;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
   &>button{
     width: 50px;
     height: 50px;
@@ -187,6 +189,9 @@ export const NumberContainer = styled.div`
     background-color: white;
     font-size: 14px;
     font-weight: bolder;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid #e5e5e5;
   }
 `;
 

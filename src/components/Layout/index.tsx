@@ -16,7 +16,7 @@ export const Layout: React.FC<withChildren> = ({children}) => {
     const {pathname} = useLocation();
     return <LayoutWrapper>
         <Header toggle={toggle} isMenuOpened={isMenuOpened} onSideBarBlur={onSideBarBlur}/>
-        {isMenuOpened && <SideMenu/>}
+        {isMenuOpened && <SideMenu isMenuOpened={isMenuOpened}/>}
         <Main>{children}</Main>
         <Footer/>
     </LayoutWrapper>

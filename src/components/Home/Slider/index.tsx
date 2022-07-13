@@ -1,20 +1,21 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {Autoplay,Navigation} from 'swiper';
-// Import Swiper styles
+import {Autoplay,Navigation,Pagination} from 'swiper';
 import 'swiper/css';
 import {SlideItem, SliderContainer} from "./style";
 import 'swiper/css/autoplay';
 export const Slider = () =>{
+
     return <SliderContainer>
         <Swiper
-        modules={[ Autoplay,Navigation]}
+        modules={[ Autoplay,Navigation,Pagination]}
         spaceBetween={0}
         slidesPerView={1}
-        navigation
         autoplay={{delay:5000,
         disableOnInteraction:false
+        }}
+        pagination={{
+            clickable: true,
         }}
     >
         <SwiperSlide><SlideItem src={'https://media.dominos.ua/slider/slide_image/2019/07/16/slider_5-pizzas.jpg'}/></SwiperSlide>
