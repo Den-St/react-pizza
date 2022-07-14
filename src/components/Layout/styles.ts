@@ -10,7 +10,6 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const Main = styled.main`
-
 `;
 export const Pain = styled.div`
   padding-bottom: 50px;
@@ -309,7 +308,7 @@ export const TotalPrice = styled.span`
   }
 `;
 
-export const MakeOrderButton = styled.button`
+export const MakeOrderButton = styled(Link)<{$isCart:boolean}>`
   width: 143px;
   height: 46px;
   display: flex;
@@ -323,7 +322,9 @@ export const MakeOrderButton = styled.button`
   color: white;
   font-family: Calibri;
   font-weight: bold;
-
+  text-decoration: none;
+  cursor: ${({$isCart}) => $isCart ? `pointer` : `not-allowed`};
+  pointer-events: ${({$isCart}) => !$isCart && `none`};
 `;
 
 export const FooterContainer = styled.div`

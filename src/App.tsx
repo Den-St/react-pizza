@@ -61,8 +61,8 @@ function App() {
           <Route path={'/'} element={<Home/>}/>
           <Route path={'/cart'} element={<Cart/>}/>
           <Route path={'/detailed'} element={<DetailedPizza/>}/>
-            <Route path={'/category/:type'} element={<Category/>}/>
-            <Route path={'/pizza/:id'} element={<DetailedPizza/>}/>
+          <Route path={'/category/:type'} element={<Category/>}/>
+          <Route path={'/pizza/:id'} element={<DetailedPizza/>}/>
         </Routes>
         <Normalize/>
       </Layout>

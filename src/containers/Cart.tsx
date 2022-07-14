@@ -1,5 +1,6 @@
 import React from "react";
+import {OrderPage} from "../components/OrderPage";
 
 export const Cart = () => {
-    return <div>cart</div>
+    return <OrderPage/>
 }

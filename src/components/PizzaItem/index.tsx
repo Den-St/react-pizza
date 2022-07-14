@@ -88,8 +88,8 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
                         <Price>{tempPrice}</Price>
                         <Grn>грн</Grn>
                     </PizzaPrice>
-                    {count===0 && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
-                    {count>0 && <NumberContainer>
+                    {!count && <PizzaAddButton onClick={addToCart}>В кошик</PizzaAddButton>}
+                    {!!count && <NumberContainer>
                         <Minus onClick={minusPizzaAtHome}>-</Minus>
                         <Count>{count}</Count>
                         <Plus onClick={addToCart}>+</Plus>

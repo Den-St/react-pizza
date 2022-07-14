@@ -30,14 +30,14 @@ export const HeaderCart = () =>{
         ,[wholePizzaNumber])
 
     return <CartContainer>
-        <CartWrapper onClick={toggleCart}>
-            <PizzasNumberContainer>
+        <CartWrapper >
+            <PizzasNumberContainer onClick={toggleCart}>
                 {wholePizzaNumber < 10 && <PizzasNumber>0{wholePizzaNumber}</PizzasNumber>}
                 {wholePizzaNumber >= 10 && <PizzasNumber>{wholePizzaNumber}</PizzasNumber>}
                 <SvgIcon type={'cart'} viewBox={'0 0 510 510'}/>
             </PizzasNumberContainer>
-            {!!wholePizzaNumber && <TotalPrice>{sum} грн</TotalPrice>}
-            <MakeOrderButton>Замовити</MakeOrderButton>
+            {!!wholePizzaNumber && <TotalPrice onClick={toggleCart}>{sum} грн</TotalPrice>}
+            <MakeOrderButton to={'/cart'} $isCart={!!wholePizzaNumber}>Замовити</MakeOrderButton>
         </CartWrapper>
         {isCart && <DropList cart={true}>{list.map(el => !!el.count ? <CartDropListItem key={el.id} pizza={el}/> : null)}</DropList>}
     </CartContainer>

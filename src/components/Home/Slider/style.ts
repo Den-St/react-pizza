@@ -9,10 +9,9 @@ export const SliderContainer = styled.div`
   & .swiper-pagination {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 7px auto;
     width: 200px !important;
     height: 50px;
-
     & .swiper-pagination-bullet {
       cursor: pointer;
       width: 13px !important;
