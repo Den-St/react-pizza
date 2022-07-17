@@ -17,6 +17,7 @@ import {
 } from "./style";
 import {Dough, PizzaInCart, Sizes, TPizza} from "../../types/pizza";
 import {PizzaContext} from "../../App";
+import {useDispatch} from "react-redux";
 
 type props = {
     pizza:TPizza;
@@ -57,11 +58,13 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
         changeTempPrice(size,dough);
     },[size,dough]);
     const link = `/pizza/${pizza.id}`;
-
-    const addToCart = () =>{
-        context?.addToCart?.({id:pizza.id,name:pizza.name,price:tempPrice,description:pizza.description,
-            doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size],count:1});
-    }
+    const onDispatch = useDispatch();
+    const addToCart = () => onDispatch({type: 'addToCart',payload:{addToCart: {pizzaInCart : {id:pizza.id,name:pizza.name,price:tempPrice,description:pizza.description,
+            doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size],count:1}}}});
+    // const addToCart = () =>{
+    //     context?.addToCart?.({id:pizza.id,name:pizza.name,price:tempPrice,description:pizza.description,
+    //         doughTypeName:pizza.doughTypesName[dough],sizeTypeName:pizza.sizeTypesName[size],count:1});
+    // }
     return <PizzaItemContainer>
         <PizzaItemWrapper>
             <PizzaImageContainer>
