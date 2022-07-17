@@ -4,8 +4,7 @@ import {compareCartToHome, comparePizzas} from "../helpers/pizza";
 
 type DeletePizzaAtHome = {
     state: addedPizzaType,
-    payload?: {pizzaInCart:PizzaInCart,
-        pizzaAtHome:TPizza,
+    payload?: { pizzaAtHome:TPizza,
         parameter:parameter}
 }
 
@@ -16,8 +15,7 @@ type AddToCart = {
 
 type MinusPizzaAtHome = {
     state:addedPizzaType,
-    payload?:{pizzaInCart:PizzaInCart,
-        pizzaAtHome:TPizza,
+    payload?:{ pizzaAtHome:TPizza,
         parameter:parameter}
 }
 
@@ -28,7 +26,7 @@ type MinusPizzaInCart = {
     }
 }
 
-type DeletePizza = {
+type DeletePizzaInCart = {
     state:addedPizzaType,
     payload?:{
         pizzaInCart:PizzaInCart,
@@ -70,7 +68,7 @@ export const MinusPizzaAtHome = ({state,payload}:MinusPizzaAtHome) =>{
     }
 }
 
-export const DeletePizzaInCart = ({state,payload}:DeletePizza) =>{
+export const DeletePizzaInCart = ({state,payload}:DeletePizzaInCart) =>{
     const pizzaInCart = payload?.pizzaInCart;
     const newList = state.addedPizza.filter(el => !comparePizzas(pizzaInCart,el));
     return newList;

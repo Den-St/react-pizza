@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import {
     BotContainer, CartDropListItemContainer,
     CrossButton, CrossImg, Grn, MinusButton,
@@ -9,23 +9,29 @@ import {
     TopContainer
 } from "./style";
 import {PizzaInCart} from "../../../types/pizza";
-import {PizzaContext} from "../../../App";
+import {useDispatch} from "react-redux";
 
 type CartDropListItemProps = {
     pizza:PizzaInCart
 }
 
 export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
-    const cart = useContext(PizzaContext);
-    const minusPizzaInCart = () =>{
-        cart.minusPizzaInCart?.(pizza);
-    }
-    const addToCart = () =>{
-        cart.plusPizza?.(pizza);
-    }
-    const deletePizza = () =>{
-        cart.deletePizza?.(pizza);
-    }
+    //const cart = useContext(PizzaContext);
+    const onDispatch = useDispatch();
+    // const minusPizzaInCart = () =>{
+    //     cart.minusPizzaInCart?.(pizza);
+    // }
+    const minusPizzaInCart = () => onDispatch({type:"minusPizzaInCart",payload:{pizza}});
+
+    // const addToCart = () =>{
+    //     cart.plusPizza?.(pizza);
+    // }
+    const addToCart = () => onDispatch({type:"plusPizza",payload:pizza});
+    // const deletePizza = () =>{
+    //     cart.deletePizza?.(pizza);
+    // }
+    const deletePizza = () => onDispatch({type:"deletePizza",payload:pizza});
+
     return <CartDropListItemContainer>
         <TopContainer>
             <Name>{pizza.name}</Name>

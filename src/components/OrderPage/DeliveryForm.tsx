@@ -1,7 +1,6 @@
 import React from "react";
 import {
     AdressHeader,
-    Comment,
     DeliveryContainer,
     DeliveryFormContainer,
     Location,

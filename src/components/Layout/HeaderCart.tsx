@@ -1,28 +1,28 @@
 import {SvgIcon} from "../common/Icon/SvgIcon";
 import React, {useContext, useEffect, useState} from "react";
 import {CartContainer,CartWrapper,PizzasNumberContainer,PizzasNumber,MakeOrderButton,TotalPrice} from './styles'
-import {PizzaContext} from "../../App";
-import {PizzaInCart} from "../../types/pizza";
 import {DropList} from "../common/DropListLanguage";
 import {CartDropListItem} from "../common/CartDropListItem";
+import {useSelector} from "react-redux";
+import {addedPizzaType} from "../../store/AddedPizza";
 
 export const HeaderCart = () =>{
-    const [list,setList] = useState<PizzaInCart[]>([]);
+    //const [list,setList] = useState<PizzaInCart[]>([]);
     const [isCart,setIsCart] = useState(false)
     const [sum,setSum] = useState(0);
     const [wholePizzaNumber,setWholePizzaNumber] = useState(0);
-    const cartList = useContext(PizzaContext).list;
-    const totalcount = cartList.map(el => el.count).join('');
-
+    //const cartList = useContext(PizzaContext).list;
+    const cartList = useSelector(state=>state) as addedPizzaType;
+    const totalcount = cartList.addedPizza.map(el => el.count).join('');
     const toggleCart = () =>{
         if(wholePizzaNumber){setIsCart(prevState => !prevState);}
     }
     console.log("total",totalcount)
     useEffect(
         ()=>{
-            setList(cartList);
-            setSum(cartList.reduce((partialSum, a) => partialSum + a.price*a.count, 0));
-            setWholePizzaNumber(cartList.reduce((partialNumber:number,pizza) => partialNumber + pizza.count, 0));
+            //setList(cartList);
+            setSum(cartList.addedPizza.reduce((partialSum, a) => partialSum + a.price*a.count, 0));
+            setWholePizzaNumber(cartList.addedPizza.reduce((partialNumber:number,pizza) => partialNumber + pizza.count, 0));
         },
         [totalcount]
     )
@@ -39,6 +39,6 @@ export const HeaderCart = () =>{
             {!!wholePizzaNumber && <TotalPrice onClick={toggleCart}>{sum} грн</TotalPrice>}
             <MakeOrderButton to={'/cart'} $isCart={!!wholePizzaNumber}>Замовити</MakeOrderButton>
         </CartWrapper>
-        {isCart && <DropList cart={true}>{list.map(el => !!el.count ? <CartDropListItem key={el.id} pizza={el}/> : null)}</DropList>}
+        {isCart && <DropList cart={true}>{cartList.addedPizza.map(el => !!el.count ? <CartDropListItem key={el.id} pizza={el}/> : null)}</DropList>}
     </CartContainer>
 }

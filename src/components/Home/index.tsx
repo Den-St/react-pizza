@@ -4,7 +4,6 @@ import {Slider} from "./Slider";
 import {PizzasDirectory} from "./PizzasDirectory";
 import {pizzaTypes, TPizza} from "../../types/pizza";
 import pizzasList from '../../assets/db.json'
-import {useDispatch} from "react-redux";
 
 export const HomePage = () => {
     const meat = pizzasList.items.filter(el => el.type.includes(pizzaTypes.meat)) as TPizza[];
@@ -13,13 +12,8 @@ export const HomePage = () => {
     const bestprice = pizzasList.items.filter(el => el.type.includes(pizzaTypes.bestprice)) as TPizza[];
     const premium = pizzasList.items.filter(el => el.type.includes(pizzaTypes.premium)) as TPizza[];
 
-    const onDispatch = useDispatch();
-    const onAdd = () => onDispatch({type: 'addToCart'})
     return <Pain>
         <Slider/>
-        <hr/>
-        <button onClick={onAdd}>dispatch</button>
-        <hr/>
         <PizzasDirectory pType={pizzaTypes.meat} items={meat} />
         <PizzasDirectory pType={pizzaTypes.cheesy} items={cheesy} />
         <PizzasDirectory pType={pizzaTypes.vegetable} items={vegetable} />
