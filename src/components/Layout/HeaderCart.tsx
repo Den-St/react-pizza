@@ -1,5 +1,5 @@
 import {SvgIcon} from "../common/Icon/SvgIcon";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {CartContainer,CartWrapper,PizzasNumberContainer,PizzasNumber,MakeOrderButton,TotalPrice} from './styles'
 import {DropList} from "../common/DropListLanguage";
 import {CartDropListItem} from "../common/CartDropListItem";
@@ -39,6 +39,6 @@ export const HeaderCart = () =>{
             {!!wholePizzaNumber && <TotalPrice onClick={toggleCart}>{sum} грн</TotalPrice>}
             <MakeOrderButton to={'/cart'} $isCart={!!wholePizzaNumber}>Замовити</MakeOrderButton>
         </CartWrapper>
-        {isCart && <DropList cart={true}>{cartList.addedPizza.map(el => !!el.count ? <CartDropListItem key={el.id} pizza={el}/> : null)}</DropList>}
+        {isCart && <DropList cart={true}>{cartList.addedPizza.map(el => !!el.count ? <CartDropListItem key={el.id+el.doughTypeName+el.sizeTypeName+el.name} pizza={el}/> : null)}</DropList>}
     </CartContainer>
 }

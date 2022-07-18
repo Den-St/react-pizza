@@ -10,7 +10,10 @@ export const PizzaTypesNames = {
 
 export const compareCartToHome = (args : {pizza1?:TPizza,pizza2?:PizzaInCart,dough?:number,size?:number}) =>{
     const {dough, size, pizza2, pizza1} = args;
-    if(!dough || !size || !pizza2 || !pizza1) return false
+    if(dough === undefined || size === undefined || pizza2 === undefined || pizza1 === undefined) {
+        console.log("compareCartToHome1",args);
+        return false;
+    }
 
     if(pizza1?.id === pizza2?.id && pizza1?.doughTypesName[dough] === pizza2?.doughTypeName && pizza1?.sizeTypesName[size] === pizza2?.sizeTypeName) {
         return true;

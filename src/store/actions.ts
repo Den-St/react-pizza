@@ -26,7 +26,7 @@ type MinusPizzaInCart = {
     }
 }
 
-type DeletePizzaInCart = {
+export type DeletePizzaInCartT = {
     state:addedPizzaType,
     payload?:{
         pizzaInCart:PizzaInCart,
@@ -59,7 +59,7 @@ export const MinusPizzaAtHome = ({state,payload}:MinusPizzaAtHome) =>{
     const pizzaAtHome = payload?.pizzaAtHome;
     const parameter = payload?.parameter;
     if(!!payload?.parameter.count) {
-        const newList = state.addedPizza.map(el => compareCartToHome?.({pizza1:pizzaAtHome,pizza2:el,dough:parameter?.dough,size:parameter?.size}) ? {...el,count: el.count - 1} : el);
+        const newList = state.addedPizza.map(el => compareCartToHome({pizza1:pizzaAtHome,pizza2:el,dough:parameter?.dough,size:parameter?.size}) ? {...el,count: el.count - 1} : el);
         return newList;
     }
     else {
@@ -68,14 +68,16 @@ export const MinusPizzaAtHome = ({state,payload}:MinusPizzaAtHome) =>{
     }
 }
 
-export const DeletePizzaInCart = ({state,payload}:DeletePizzaInCart) =>{
+export const DeletePizzaInCart = ({state,payload}:DeletePizzaInCartT) =>{
     const pizzaInCart = payload?.pizzaInCart;
+    console.log('p1',payload);
     const newList = state.addedPizza.filter(el => !comparePizzas(pizzaInCart,el));
     return newList;
 }
 
 export const MinusPizzaInCart = ({state,payload}:MinusPizzaInCart) =>{
     const pizzaInCart = payload?.pizzaInCart;
+    console.log("MinusPizzaInCart",payload);
     if(!!pizzaInCart?.count) {
         const newList = state.addedPizza.map(el => comparePizzas(el,pizzaInCart) ? {...el,count: el.count - 1} : el);
         return newList;
@@ -84,6 +86,7 @@ export const MinusPizzaInCart = ({state,payload}:MinusPizzaInCart) =>{
 }
 
 export const PlusPizza = ({state,payload}:PlusPizza) =>{
+    console.log("pluspizzaincart",payload)
     const pizzaInCart = payload?.pizzaInCart;
     const newList = state.addedPizza.map(el => comparePizzas(el,pizzaInCart) ? {...el,count: el.count + 1} : el);
     return newList;

@@ -10,6 +10,7 @@ import {
 } from "./style";
 import {PizzaInCart} from "../../../types/pizza";
 import {useDispatch} from "react-redux";
+import {DeletePizzaInCart, DeletePizzaInCartT, PlusPizza} from "../../../store/actions";
 
 type CartDropListItemProps = {
     pizza:PizzaInCart
@@ -21,16 +22,16 @@ export const CartDropListItem:React.FC<CartDropListItemProps> = ({pizza}) =>{
     // const minusPizzaInCart = () =>{
     //     cart.minusPizzaInCart?.(pizza);
     // }
-    const minusPizzaInCart = () => onDispatch({type:"minusPizzaInCart",payload:{pizza}});
+    const minusPizzaInCart = () => onDispatch({type:"minusPizzaInCart",payload:{minusPizzaInCart:{pizzaInCart:pizza}}});
 
     // const addToCart = () =>{
     //     cart.plusPizza?.(pizza);
     // }
-    const addToCart = () => onDispatch({type:"plusPizza",payload:pizza});
+    const addToCart = () => onDispatch({type:"plusPizza",payload:{plusPizza:{pizzaInCart:pizza}}});
     // const deletePizza = () =>{
     //     cart.deletePizza?.(pizza);
     // }
-    const deletePizza = () => onDispatch({type:"deletePizza",payload:pizza});
+    const deletePizza = () => onDispatch({type:"deletePizzaInCart",payload:{deletePizzaInCart:{pizzaInCart:pizza}}});
 
     return <CartDropListItemContainer>
         <TopContainer>

@@ -30,14 +30,17 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const [dough,setDough] = useState(0);
     const [tempPrice,setTempPrice] = useState(pizza.priceSize?.[0]);
     const onDispatch = useDispatch();
-    const list = useSelector(state => state) as addedPizzaType;
-    const totalcount = list.addedPizza.map(el => compareCartToHome({pizza1:pizza,pizza2:el,dough,size}) ? el.count : '').join('');
-    console.log("asdf",list.addedPizza);
+    const list = useSelector(state=>state) as addedPizzaType;
+    const totalcount = list.addedPizza.map(el => compareCartToHome({pizza1:pizza,pizza2:el,dough:dough,size:size}) ? el.count: '').join('');
 
     // const minusPizzaAtHome = () =>{
     //     context.minusPizzaAtHome?.(pizza,dough,size,count);
     // }
-    const minusPizzaAtHome = () => onDispatch({type:"minusPizzaAtHome",payload:{pizza,parameter:{dough:dough,size:size,count:count}}})
+    const minusPizzaAtHome = () => {
+        console.log('cliced',count);
+        onDispatch({type: "minusPizzaAtHome",
+            payload:{minusPizzaAtHome: {pizzaAtHome:pizza,parameter:{dough,size,count}}}});
+    }
 
     const changeSize = (s:Sizes) => () =>{
         setSize(s);
@@ -48,12 +51,17 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     const changeTempPrice = (size:number,dough:number) =>{
         setTempPrice((pizza.priceSize[size] + pizza.priceDough[size][dough]))
     }
-    useEffect(()=>{
-        const exist = list.addedPizza.find(el => compareCartToHome({pizza1:pizza,pizza2:el,dough,size}));
-        if(exist) {
+    useEffect(()=> {
+        const exist = list.addedPizza.find(el => compareCartToHome({
+            pizza1: pizza,
+            pizza2: el,
+            dough: dough,
+            size: size
+        }));
+        if (exist) {
             exist ? setCount(exist.count) : setCount(0);
         }
-            if(!totalcount) setCount(0)
+        if (!totalcount) setCount(0)
         },
         [totalcount]
     )
