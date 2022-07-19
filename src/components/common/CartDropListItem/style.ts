@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const focusAnimation = keyframes`
+ 0% { top: -200px}
+ 100% { right: 0}
+`
 
 export const CartDropListItemContainer = styled.div`
   width: 310px;
@@ -7,7 +12,6 @@ export const CartDropListItemContainer = styled.div`
   justify-content: flex-start;
   padding: 10px 10px 10px 20px;
   box-sizing: border-box;
-  font-family: Calibri;
   transition: 0.3s;
   &:hover {
     background-color: #e0dfdf;

@@ -37,7 +37,6 @@ export const PizzaItem:React.FC<props> = ({pizza}) =>{
     //     context.minusPizzaAtHome?.(pizza,dough,size,count);
     // }
     const minusPizzaAtHome = () => {
-        console.log('cliced',count);
         onDispatch({type: "minusPizzaAtHome",
             payload:{minusPizzaAtHome: {pizzaAtHome:pizza,parameter:{dough,size,count}}}});
     }

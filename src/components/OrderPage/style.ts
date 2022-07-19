@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Select from "react-select";
 
 export const OrderPageContainer = styled.div`
   box-sizing: border-box;
@@ -34,7 +35,6 @@ export const OrderingContainer = styled.div`
 `;
 
 export const OrderingHeader = styled.span`
-  margin-left: 5px;
   width: 100%;
   margin: 20px;
   height: 18px;
@@ -42,21 +42,21 @@ export const OrderingHeader = styled.span`
   font-weight: 600;
 `;
 
-export const DeliveryButton = styled.button`
-  
+export const DeliveryButton = styled.button<{$isActive:boolean}>`
+    cursor: pointer;
+  color: ${({$isActive}) => $isActive ? `red` : `black`};
 `;
-export const WithMeButton = styled.button`
-  
+export const WithMeButton = styled.button<{$isActive:boolean}>`
+  cursor: pointer;
+  color: ${({$isActive}) => $isActive ? `red` : `black`};
 `;
 
 export const ContactHeader = styled.span`
-  margin-left: 5px;
   width: 100%;
-  margin: 20px;
   height: 18px;
   font-size: 18px;
   font-weight: 600;
-  margin: 20px 0px 30px 5px;
+  margin: 20px 0 0 5px;
 `;
 
 export const ContactForm = styled.form`
@@ -74,6 +74,46 @@ export const ContactInput = styled.input`
   height: 100%;
   border-radius: 15px;
   border: 1px solid #a7a7a7;
+`;
+
+export const InputContainer = styled.div<{$isComment?:boolean}>`
+  width: ${({$isComment})=> $isComment ? `471px` : `230px`};
+  height: ${({$isComment})=> $isComment ? `90px` : `60px`};
+  &>input{
+    width: 100%;
+    height: ${({$isComment})=> $isComment ? `60px` : `30px`};
+    border-radius: 15px;
+    border: 1px solid #a7a7a7;
+    outline: none;
+    color: black;
+    font-size: 18px;
+    &::placeholder{
+      color: #a7a7a7;
+    }
+  }
+  &>textarea{
+    width: 100%;
+    height: ${({$isComment})=> $isComment ? `60px` : `30px`};
+    border-radius: 15px;
+    border: 1px solid #a7a7a7;
+    outline: none;
+    color: black;
+    font-size: 18px;
+    &::placeholder{
+      color: #a7a7a7;
+    }
+  }
+`;
+
+export const PlaceholderText = styled.span`
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  font-size: 18px;
+  color: #a7a7a7;
+  padding-left: 5px;
 `;
 
 export const DeliveryContainer = styled.div`
@@ -94,12 +134,11 @@ export const Street = styled.span`
 `;
 
 export const AdressHeader = styled.span`
-  margin-bottom: 10px;
-  margin: 0 0 30px 5px;
   width: 100%;
   height: 18px;
   font-size: 18px;
   font-weight: 600;
+  margin-left: 10px;
 `;
 
 export const DeliveryFormContainer = styled.form`
@@ -187,10 +226,13 @@ export const DateAndTimeHeader = styled.span`
   font-weight: 600;
 `;
 
-export const DateAndTimeForm = styled.form`
+export const DateAndTimeForm = styled.div`
   width: 100%;
   height: 50px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap ;
 `;
 
 export const Date = styled.span`
@@ -204,23 +246,24 @@ export const Time = styled.span`
   font-size: 14px;
   padding: 2px 10px;
   color: #a7a7a7;
-  width: 230px;
+  width: 270px;
 `;
 
-export const DateSelect = styled.select`
+export const DateSelect = styled(Select)`
   width: 230px;
   height: 30px;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
-
+  margin-right: 15px;
+  &>div{
+    border-radius: 20px;
+  }
 `;
 
-export const TimeForm = styled.select`
+export const TimeSelect = styled(Select)`
   width: 230px;
   height: 30px;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
-
+  &>div{
+    border-radius: 20px;
+  }
 `;
 
 export const PayHeader = styled.span`
@@ -233,25 +276,36 @@ export const PayHeader = styled.span`
 
 export const PayForm = styled.form`
   width: 100%;
-  height: 110px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;
 
 export const Coupon = styled.span`
+  position: absolute;
+  height: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
   font-size: 14px;
   padding: 2px 10px;
   color: #a7a7a7;
   width: 230px;
 `;
 
-export const UseCoupon = styled.select`
+export const UseCoupon = styled(Select)`
   width: 230px;
   height: 30px;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
+  margin-right: 10px;
+  &>div{
+    border-radius: 20px;
+  }
+`;
 
+export const Empty = styled.div`
+  height: 30px;
+  color: #a7a7a7;
+  width: 230px;
 `;
 
 export const Change = styled.input`
@@ -259,13 +313,17 @@ export const Change = styled.input`
   height: 30px;
   border-radius: 15px;
   border: 1px solid #a7a7a7;
+  
 `;
 
 export const ChangeButtonContainer = styled.button`
   width: 60px;
   height: 30px;
   border-radius: 34px;
-  border:1px solid black;
+  border: 1px solid #a7a7a7;
+  outline: none;
+  margin-top: 3px;
+  margin-left: 10px;
 `;
 
 export const ChangeButtonCircle = styled.div`
@@ -277,7 +335,7 @@ export const ChangeButtonCircle = styled.div`
 export const WithoutChange = styled.span`
   color: #a7a7a7;
   font-size: 16px;
-  padding-left: 10px;
+  margin: auto 0 auto 10px;
 `;
 
 export const TypeOfPayment = styled.select`

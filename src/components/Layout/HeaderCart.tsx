@@ -17,7 +17,6 @@ export const HeaderCart = () =>{
     const toggleCart = () =>{
         if(wholePizzaNumber){setIsCart(prevState => !prevState);}
     }
-    console.log("total",totalcount)
     useEffect(
         ()=>{
             //setList(cartList);

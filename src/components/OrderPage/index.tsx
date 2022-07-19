@@ -1,18 +1,15 @@
 import React, {useState} from "react";
 import {
-    Change,
     ChangeButtonCircle,
     ChangeButtonContainer,
-    Comment,
     ContactForm,
     ContactHeader,
-    ContactInput,
     Coupon,
     Date,
     DateAndTimeForm,
     DateAndTimeHeader,
     DateSelect,
-    DeliveryButton, Grn,
+    DeliveryButton,Grn,
     LeftContainer,
     OrderButton,
     OrderingContainer,
@@ -24,8 +21,7 @@ import {
     Price,
     PriceContainer, RightContainer,
     Time,
-    TimeForm,
-    TypeOfPayment,
+    TimeSelect,
     UseCoupon,
     Whole,
     WithMeButton,
@@ -33,6 +29,9 @@ import {
 } from "./style";
 import {DeliveryForm} from "./DeliveryForm";
 import {WithMeForm} from "./WithMeForm";
+import {Input} from "../../containers/Input";
+import Select from 'react-select'
+import {optionsDay, optionsTime} from "../../helpers/pizza";
 
 export const OrderPage = () =>{
     const [isOnDelivery,setIsOnDelivery] = useState(true);
@@ -43,41 +42,42 @@ export const OrderPage = () =>{
         if(isOnDelivery)setIsOnDelivery(false);
     }
 
+
     return <OrderPageContainer>
         <LeftContainer>
 
             <OrderingHeader>Оформлення замовлення</OrderingHeader>
             <OrderingContainer>
-                <DeliveryButton onClick={onDelivery}>Доставка</DeliveryButton>
-                <WithMeButton onClick={onWithMe}>З собою</WithMeButton>
+                <DeliveryButton $isActive={isOnDelivery} onClick={onDelivery}>Доставка</DeliveryButton>
+                <WithMeButton $isActive={!isOnDelivery} onClick={onWithMe}>З собою</WithMeButton>
             </OrderingContainer>
 
             <ContactHeader>Контакты</ContactHeader>
             <ContactForm>
-                <ContactInput/>
-                <ContactInput/>
-                <ContactInput/>
+                <Input placeholder={"Ім'я"}/>
+                <Input placeholder={"Телефон"}/>
+                <Input placeholder={"Email"}/>
             </ContactForm>
 
             {isOnDelivery ? <DeliveryForm/> : <WithMeForm/>}
-            <Comment/>
+            <Input placeholder={"Коментар"} isComment={true}/>
 
             <DateAndTimeHeader>Дата та час</DateAndTimeHeader>
             <DateAndTimeForm>
                 <Date>Дата</Date>
                 <Time>Час</Time>
-                <DateSelect/>
-                <TimeForm/>
+                <DateSelect defaultValue={optionsDay[0]} options={optionsDay}/>
+                <TimeSelect defaultValue={optionsDay[0]} options={optionsDay}/>
             </DateAndTimeForm>
 
             <PayHeader>Оплата</PayHeader>
             <PayForm>
-                <Coupon>Купон</Coupon>
                 <UseCoupon/>
-                <Change/>
+                <Input placeholder={"Решта"}/>
                 <ChangeButtonContainer><ChangeButtonCircle/></ChangeButtonContainer>
                 <WithoutChange>Без решти</WithoutChange>
-                <TypeOfPayment></TypeOfPayment>
+                <Coupon>Тип оплати</Coupon>
+                <Select/>
             </PayForm>
 
             <PayBlock>
