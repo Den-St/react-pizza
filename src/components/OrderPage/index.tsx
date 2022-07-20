@@ -9,7 +9,7 @@ import {
     DateAndTimeForm,
     DateAndTimeHeader,
     DateSelect,
-    DeliveryButton,Grn,
+    DeliveryButton, Grn,
     LeftContainer,
     OrderButton,
     OrderingContainer,
@@ -17,7 +17,7 @@ import {
     OrderPageContainer,
     PayBlock,
     PayForm,
-    PayHeader,
+    PayHeader, PaymentType, PaymentTypeSelect,
     Price,
     PriceContainer, RightContainer,
     Time,
@@ -67,17 +67,18 @@ export const OrderPage = () =>{
                 <Date>Дата</Date>
                 <Time>Час</Time>
                 <DateSelect defaultValue={optionsDay[0]} options={optionsDay}/>
-                <TimeSelect defaultValue={optionsDay[0]} options={optionsDay}/>
+                <TimeSelect defaultValue={optionsTime()[0]} options={optionsTime()}/>
             </DateAndTimeForm>
 
-            <PayHeader>Оплата</PayHeader>
             <PayForm>
+                <PayHeader>Оплата</PayHeader>
+                <Coupon>Купон</Coupon>
                 <UseCoupon/>
                 <Input placeholder={"Решта"}/>
                 <ChangeButtonContainer><ChangeButtonCircle/></ChangeButtonContainer>
                 <WithoutChange>Без решти</WithoutChange>
-                <Coupon>Тип оплати</Coupon>
-                <Select/>
+                <PaymentType>Тип оплати</PaymentType>
+                <PaymentTypeSelect/>
             </PayForm>
 
             <PayBlock>

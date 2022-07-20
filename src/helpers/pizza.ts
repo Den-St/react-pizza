@@ -34,7 +34,7 @@ type optionType = {
 export const optionsTime = ():optionType[] =>{
     const optionsTimeArr:optionType[] = [];
     for(let hours = 0;hours < 24;hours++){
-        for(let minutes = 0;minutes<=60;minutes+=10){
+        for(let minutes = 0;minutes<60;minutes+=10){
             if (hours < 10 && minutes < 10){
                 optionsTimeArr.push({value:"0"+hours+":0"+minutes,label:"0"+hours+":0"+minutes});
             }
@@ -52,7 +52,7 @@ export const optionsTime = ():optionType[] =>{
     }
     if(!optionsTimeArr[0]) optionsTimeArr.push({value:"",label:""});
 
-    return [{value:"",label:""}];
+    return optionsTimeArr;
 }
 
 export const optionsDay = [

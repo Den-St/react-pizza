@@ -69,13 +69,6 @@ export const ContactForm = styled.form`
   align-items: center;
 `;
 
-export const ContactInput = styled.input`
-  width: 230px;
-  height: 100%;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
-`;
-
 export const InputContainer = styled.div<{$isComment?:boolean}>`
   width: ${({$isComment})=> $isComment ? `471px` : `230px`};
   height: ${({$isComment})=> $isComment ? `90px` : `60px`};
@@ -279,10 +272,14 @@ export const PayForm = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position:relative;
+  align-items: center;
 `;
 
 export const Coupon = styled.span`
   position: absolute;
+  top:13px;
+  left: 0;
   height: 30px;
   display: flex;
   justify-content: left;
@@ -297,24 +294,12 @@ export const UseCoupon = styled(Select)`
   width: 230px;
   height: 30px;
   margin-right: 10px;
+  margin-top: 25px;
   &>div{
     border-radius: 20px;
   }
 `;
 
-export const Empty = styled.div`
-  height: 30px;
-  color: #a7a7a7;
-  width: 230px;
-`;
-
-export const Change = styled.input`
-  width: 230px;
-  height: 30px;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
-  
-`;
 
 export const ChangeButtonContainer = styled.button`
   width: 60px;
@@ -322,8 +307,8 @@ export const ChangeButtonContainer = styled.button`
   border-radius: 34px;
   border: 1px solid #a7a7a7;
   outline: none;
-  margin-top: 3px;
   margin-left: 10px;
+  margin-top: 30px;
 `;
 
 export const ChangeButtonCircle = styled.div`
@@ -335,15 +320,28 @@ export const ChangeButtonCircle = styled.div`
 export const WithoutChange = styled.span`
   color: #a7a7a7;
   font-size: 16px;
-  margin: auto 0 auto 10px;
+  margin: 35px 0 auto 10px;
+  
 `;
 
-export const TypeOfPayment = styled.select`
+export const PaymentTypeSelect = styled(Select)`
   width: 230px;
   height: 30px;
-  border-radius: 15px;
-  border: 1px solid #a7a7a7;
 
+  &>div{
+    border-radius: 25px;
+  }
+`;
+
+export const PaymentType = styled.span`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  font-size: 14px;
+  padding: 2px 10px;
+  color: #a7a7a7;
 `;
 
 export const PayBlock = styled.div`
@@ -380,3 +378,4 @@ export const RightContainer = styled.div`
   height: 1106px;
   border: 1px solid black;
 `;
+
